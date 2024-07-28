@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   content: [
@@ -9,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Space Mono"', 'monospace', ...defaultTheme.fontFamily.sans]
+        sans: ['"Space Mono"', 'monospace']
       }
     }
   },

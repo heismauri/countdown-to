@@ -1,12 +1,12 @@
 import useCountdown from '../useCountdown.tsx';
 
-type CountdownProps = {
+interface CountdownProps {
   timestamp: number;
   actionElement?: React.ReactNode;
   finishedElement?: React.ReactNode;
 }
 
-type TimeContainerProps = {
+interface TimeContainerProps {
   time: number;
   unit: string;
 }
