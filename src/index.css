@@ -2,23 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  b,
+  strong {
+    @apply font-bold;
+  }
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
 @layer components {
-  body {
-    @apply antialiased bg-black text-white relative;
-  }
   .background-overlay-image {
-    @apply bg-center bg-cover blur-sm opacity-50 transform scale-110 transition-[background-image];
+    @apply bg-center bg-cover transform scale-110 transition-[background-image];
   }
-  .btn-link {
-    @apply inline-block bg-gray-50 hover:bg-gray-950 text-black hover:text-white py-2 px-6 rounded transition-colors;
+  .btn {
+    @apply inline-block py-2 px-6;
+  }
+  .carousel-item {
+    @apply bg-center transition-opacity duration-[3000ms] ease-in-out absolute w-full h-full;
   }
 }
 
-.fade-in-pop {
-  animation: fade-in-pop 1s;
+.fade-in {
+  animation: fade-in 1s ease-in-out;
 }
 
-@keyframes fade-in-pop {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
