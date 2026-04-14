@@ -12,3 +12,8 @@
     opacity: 1;
   }
 }
+
+body {
+  background-image: url("/background.png");
+  background-size: auto 160px;
+}

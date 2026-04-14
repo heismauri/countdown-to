@@ -12,14 +12,13 @@ import logo from "@/assets/title-track.svg";
       page.
     </div>
   </noscript>
-  <main class="container mx-auto">
-      <div class="w-full min-h-svh flex flex-col justify-center items-center px-5 py-12 mx-auto">
-        <div class="px-5 py-12">
+  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center">
+      <div class="w-sm px-5 py-12 bg-stone-950/70">
+        <div class="px-5 py-12 flex flex-col justify-center items-center">
           <img
             class="text-center pointer-events-none"
             src={logo.src}
             alt="NMIXX logo"
-            width={280}
           />
           <Countdown client:load timestamp={1778490000000} />
         </div>
