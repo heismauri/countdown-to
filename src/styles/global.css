@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: var(--font-space-mono);
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

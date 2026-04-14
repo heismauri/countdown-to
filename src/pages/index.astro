@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Countdown from '@/components/Countdown.tsx';
+import Footer from '@/components/Footer.astro';
+import logo from "@/assets/title-track.svg";
 ---
 
 <Layout>
-	<Welcome />
+  <noscript>
+    <div class="m-5">
+      JavaScript is disabled in your browser. Please enable it to view this
+      page.
+    </div>
+  </noscript>
+  <main class="container mx-auto">
+      <div class="w-full min-h-svh flex flex-col justify-center items-center px-5 py-12 mx-auto">
+        <div class="px-5 py-12">
+          <img
+            class="text-center pointer-events-none"
+            src={logo.src}
+            alt="NMIXX logo"
+            width={280}
+          />
+          <Countdown client:load timestamp={1778490000000} />
+        </div>
+      </div>
+      <Footer />
+  </main>
 </Layout>
