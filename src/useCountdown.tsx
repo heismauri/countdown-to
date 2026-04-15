@@ -20,13 +20,13 @@ const useCountdown = (date: Date) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (countDown < 0) return clearInterval(interval);
-
-      return setCountDown(countDownDate - new Date().getTime());
+      const remaining = countDownDate - new Date().getTime();
+      setCountDown(remaining);
+      if (remaining <= 0) clearInterval(interval);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [countDown, countDownDate]);
+  }, [countDownDate]);
 
   return getTimes(countDown);
 };
