@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const getTimes = (distance: number) => {
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -7,7 +7,10 @@ const getTimes = (distance: number) => {
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   return {
-    days, hours, minutes, seconds
+    days,
+    hours,
+    minutes,
+    seconds
   };
 };
 

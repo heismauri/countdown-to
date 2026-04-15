@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import useCountdown from '../useCountdown.tsx';
+import { useRef } from "react";
+import useCountdown from "@/useCountdown.tsx";
 
 interface CountdownProps {
   timestamp: number;
@@ -16,19 +16,19 @@ interface TimeContainerProps {
 
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat([], {
-    dateStyle: 'short',
-    timeStyle: 'medium'
+    dateStyle: "short",
+    timeStyle: "medium"
   })
     .format(date)
-    .split('/')
-    .join('.')
-    .replace(',', '');
+    .split("/")
+    .join(".")
+    .replace(",", "");
 };
 
 const TimeContainer = ({ time, unit }: TimeContainerProps) => {
   return (
     <div>
-      <p className="text-4xl">{String(time).padStart(2, '0')}</p>
+      <p className="text-4xl">{String(time).padStart(2, "0")}</p>
       <p className="text-sm">{unit}</p>
     </div>
   );
@@ -36,9 +36,7 @@ const TimeContainer = ({ time, unit }: TimeContainerProps) => {
 
 const Countdown = (props: CountdownProps) => {
   const date = new Date(props.timestamp);
-  const {
-    days, hours, minutes, seconds
-  } = useCountdown(date);
+  const { days, hours, minutes, seconds } = useCountdown(date);
   const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const formattedDate = formatDate(date);
   const containerRef = useRef<HTMLDivElement>(null);
