@@ -14,15 +14,15 @@ interface TimeContainerProps {
   unit: string;
 }
 
+const dateFormatter = new Intl.DateTimeFormat([], {
+  dateStyle: "short",
+  timeStyle: "medium"
+});
+
+const userTimeZone = dateFormatter.resolvedOptions().timeZone;
+
 const formatDate = (date: Date): string => {
-  return new Intl.DateTimeFormat([], {
-    dateStyle: "short",
-    timeStyle: "medium"
-  })
-    .format(date)
-    .split("/")
-    .join(".")
-    .replace(",", "");
+  return dateFormatter.format(date).split("/").join(".").replace(",", "");
 };
 
 const TimeContainer = memo(({ time, unit }: TimeContainerProps) => {
@@ -34,10 +34,9 @@ const TimeContainer = memo(({ time, unit }: TimeContainerProps) => {
   );
 });
 
-const Countdown = (props: CountdownProps) => {
+const Countdown = memo((props: CountdownProps) => {
   const date = useMemo(() => new Date(props.timestamp), [props.timestamp]);
   const formattedDate = useMemo(() => formatDate(date), [date]);
-  const userTimeZone = useMemo(() => Intl.DateTimeFormat().resolvedOptions().timeZone, []);
   const { days, hours, minutes, seconds } = useCountdown(date);
 
   if (seconds < 0) {
@@ -70,6 +69,6 @@ const Countdown = (props: CountdownProps) => {
       {props.endElement}
     </div>
   );
-};
+});
 
 export default Countdown;
