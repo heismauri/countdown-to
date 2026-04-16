@@ -3,6 +3,69 @@ import Layout from "@/layouts/Layout.astro";
 import Countdown from "@/components/Countdown.tsx";
 import Footer from "@/components/Footer.astro";
 import logo from "@/assets/title-track.svg";
+
+const timetable = [
+  {
+    timestamp: new Date("21 Apr 2026 10:00:00 PM GMT+9").getTime(),
+    label: "Album Trailer"
+  },
+  {
+    timestamp: new Date("22 Apr 2026 10:00:00 PM GMT+9").getTime(),
+    label: "Track List"
+  },
+  {
+    timestamp: new Date("22 Apr 2026 10:00:00 PM GMT+9").getTime(),
+    label: "Motion Poster"
+  },
+  {
+    timestamp: new Date("24 Apr 2026 12:00:00 AM GMT+9").getTime(),
+    label: "Concept Photo: Heavy Version"
+  },
+  {
+    timestamp: new Date("25 Apr 2026 12:00:00 AM GMT+9").getTime(),
+    label: "Concept Photo: Serenade Version"
+  },
+  {
+    timestamp: new Date("26 Apr 2026 12:00:00 AM GMT+9").getTime(),
+    label: "Special Website Launch"
+  },
+  {
+    timestamp: new Date("27 Apr 2026 12:00:00 AM GMT+9").getTime(),
+    label: 'Pre-release "Crescendo" M/V Teaser'
+  },
+  {
+    timestamp: new Date("28 Apr 2026 06:00:00 PM GMT+9").getTime(),
+    label: 'Pre-release "Crescendo" M/V'
+  },
+  {
+    timestamp: new Date("5 May 2026 08:00:00 PM GMT+9").getTime(),
+    label: "A Capella Highlight Medley"
+  },
+  {
+    timestamp: new Date("7 May 2026 08:00:00 PM GMT+9").getTime(),
+    label: "Original Highlight Medley"
+  },
+  {
+    timestamp: new Date("8 May 2026 12:00:00 PM GMT+9").getTime(),
+    label: '"Heavy Serenade" 3D Album Preview'
+  },
+  {
+    timestamp: new Date("10 May 2026 12:00:00 AM GMT+9").getTime(),
+    label: '"Heavy Serenade" M/V Teaser'
+  },
+  {
+    timestamp: new Date("11 May 2026 04:40:00 PM GMT+9").getTime(),
+    label: '"Heavy Serenade" Countdown Live'
+  },
+  {
+    timestamp: new Date("11 May 2026 06:00:00 PM GMT+9").getTime(),
+    label: '"Heavy Serenade" M/V'
+  },
+  {
+    timestamp: new Date("18 May 2026 06:00:00 PM GMT+9").getTime(),
+    label: "In-ear Monitor Audio"
+  }
+].sort((a, b) => a.timestamp - b.timestamp);
 ---
 
 <Layout>
@@ -10,21 +73,32 @@ import logo from "@/assets/title-track.svg";
     <div class="m-5">JavaScript is disabled in your browser. Please enable it to view this page.</div>
   </noscript>
   <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-4 py-12">
-    <div class="max-w-sm px-4 py-12 bg-stone-950/40">
-      <div class="flex flex-col justify-center items-center">
-        <img class="text-center pointer-events-none" src={logo.src} alt="NMIXX logo" />
-        <Countdown client:load timestamp={1778490000000} class="mt-4" keepAfterEnd>
-          <a href="https://nmixx.lnk.to/HeavySerenade" target="_blank" rel="noopener noreferrer">
-            <div
-              class:list={[
-                "inline-block py-2 px-6 my-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
-                "hover:text-stone-50 transition-colors duration-300"
-              ]}
-            >
-              pre-order + pre-save now
-            </div>
-          </a>
-        </Countdown>
+    <div class="max-w-md md:max-w-2xl px-6 py-6 bg-stone-950/40">
+      <div class="md:flex gap-x-6 gap-y-12 justify-center">
+        <div class="flex flex-col justify-center items-center">
+          <img class="text-center pointer-events-none max-w-2xs" src={logo.src} alt="NMIXX logo" />
+          <Countdown client:load timestamp={1778490000000} class="mt-4" keepAfterEnd>
+            <a href="https://nmixx.lnk.to/HeavySerenade" target="_blank" rel="noopener noreferrer">
+              <div
+                class:list={[
+                  "text-sm inline-block py-2 px-6 my-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
+                  "hover:text-stone-50 transition-colors duration-300"
+                ]}
+              >
+                pre-order + pre-save now
+              </div>
+            </a>
+          </Countdown>
+        </div>
+        <div class="grid grid-cols-1 gap-6 justify-center items-center md:max-h-[70dvh] overflow-scroll empty:hidden">
+          {
+            timetable.map((item) => (
+              <Countdown client:load timestamp={item.timestamp} small class="mx-auto">
+                <p class="italic font-bold text-sm my-1 lowercase">{item.label}</p>
+              </Countdown>
+            ))
+          }
+        </div>
       </div>
     </div>
     <Footer />

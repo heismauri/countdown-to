@@ -30,7 +30,7 @@ const TimeContainer = memo(({ time, unit, small = false }: TimeContainerProps) =
   return (
     <div>
       <p className={small ? "text-2xl" : "text-4xl"}>{String(time).padStart(2, "0")}</p>
-      <p className="text-sm">{unit}</p>
+      <p className={small ? "text-xs" : "text-sm"}>{unit}</p>
     </div>
   );
 });
@@ -47,8 +47,8 @@ const Countdown = memo(
         <div className="max-w-72 text-center">
           {children}
           <div className="lowercase mt-4">
-            <p>{formattedDate}</p>
-            <p className="text-sm">{userTimeZone}</p>
+            <p className={small ? "text-sm" : "text-base"}>{formattedDate}</p>
+            <p className={small ? "text-xs" : "text-sm"}>{userTimeZone}</p>
           </div>
         </div>
       );
@@ -66,8 +66,8 @@ const Countdown = memo(
         </div>
         {children}
         <div className="lowercase">
-          <p>{formattedDate}</p>
-          <p className="text-sm">{userTimeZone}</p>
+          <p className={small ? "text-sm" : "text-base"}>{formattedDate}</p>
+          <p className={small ? "text-xs" : "text-sm"}>{userTimeZone}</p>
         </div>
       </div>
     );
