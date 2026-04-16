@@ -9,15 +9,15 @@ import logo from "@/assets/title-track.svg";
   <noscript>
     <div class="m-5">JavaScript is disabled in your browser. Please enable it to view this page.</div>
   </noscript>
-  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center p-4">
+  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-4 py-12">
     <div class="max-w-sm px-4 py-12 bg-stone-950/40">
       <div class="flex flex-col justify-center items-center">
         <img class="text-center pointer-events-none" src={logo.src} alt="NMIXX logo" />
-        <Countdown client:load timestamp={1778490000000} class="mt-4">
+        <Countdown client:load timestamp={1778490000000} class="mt-4" keepAfterEnd>
           <a href="https://nmixx.lnk.to/HeavySerenade" target="_blank" rel="noopener noreferrer">
             <div
               class:list={[
-                "inline-block py-2 px-6 mt-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
+                "inline-block py-2 px-6 my-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
                 "hover:text-stone-50 transition-colors duration-300"
               ]}
             >
