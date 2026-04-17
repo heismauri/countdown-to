@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-body {
-  background-image: url("/background.jpg");
-  background-size: cover;
-  background-position-x: right;
-  background-position-y: center;
-  background-attachment: fixed;
-}
-
 @theme inline {
   --font-sans: var(--font-space-mono);
 }
