@@ -1,19 +1,24 @@
 @import "tailwindcss";
 
+body {
+  background-image: url("/background.jpg");
+  background-size: cover;
+  background-position-x: right;
+  background-position-y: center;
+  background-attachment: fixed;
+}
+
 @theme inline {
   --font-sans: var(--font-space-mono);
 }
 
-@keyframes fade-in {
-  from {
+@keyframes fade-in-right {
+  0% {
     opacity: 0;
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
+    transform: translateX(0);
   }
-}
-
-body {
-  background-image: url("/background.png");
-  background-size: auto 160px;
 }
