@@ -74,7 +74,7 @@ const timetable = [
   </noscript>
   <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-4 py-12">
     <div class="bg-[url(/background.jpg)] bg-cover bg-right w-full h-dvh fixed top-0 left-0 -z-10" />
-    <div class="max-w-md md:max-w-2xl px-6 py-6 bg-stone-950/80 animate-[fade-in-right_1s_ease-out]">
+    <div class="max-w-md md:max-w-2xl px-6 py-6 bg-black/80 animate-[fade-in-right_1s_ease-out]">
       <div class="grid md:flex gap-x-6 gap-y-12 justify-center">
         <div class="md:w-1/2 flex flex-col justify-center items-center px-2">
           <img class="text-center pointer-events-none max-w-2xs" src={logo.src} alt="NMIXX logo" />
@@ -94,13 +94,13 @@ const timetable = [
         <div
           class:list={[
             "md:w-1/2 grid grid-cols-1 gap-6 px-2 justify-center items-center md:max-h-[70dvh] md:overflow-y-auto",
-            "[&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-stone-700",
-            "[&::-webkit-scrollbar-thumb]:bg-stone-100"
+            "md:snap-y md:scroll-smooth [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-stone-800/75",
+            "[&::-webkit-scrollbar-thumb]:bg-stone-100 empty:hidden"
           ]}
         >
           {
             timetable.map((item) => (
-              <Countdown client:load timestamp={item.timestamp} small class="mx-auto">
+              <Countdown client:load timestamp={item.timestamp} small class="snap-start mx-auto">
                 <p class="italic text-sm my-1 lowercase">{item.label}</p>
               </Countdown>
             ))
