@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react";
-import useCountdown from "@/useCountdown.tsx";
+
+import useCountdown from "@/hooks/useCountdown";
 
 interface CountdownProps {
   timestamp: number;
