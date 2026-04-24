@@ -72,12 +72,18 @@ const timetable = [
   <noscript>
     <div class="m-5">JavaScript is disabled in your browser. Please enable it to view this page.</div>
   </noscript>
-  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-4 py-12">
-    <div class="bg-[url(/background.jpg)] bg-cover bg-right w-full h-dvh fixed top-0 left-0 -z-10" />
-    <div class="max-w-md md:max-w-2xl px-6 py-6 bg-black/80 animate-[fade-in-right_1s_ease-out]">
+  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-12 py-20">
+    <div class="w-full h-dvh fixed top-0 left-0 -z-10">
+      <iframe
+        src="https://www.youtube.com/embed/gRZlaEbhbqs?autoplay=1&mute=1&loop=1&controls=0&rel=0&playsinline=1"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; gyroscope; accelerometer"
+        class="w-lvw h-[56.25vw] min-h-[140vh] min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        allowfullscreen/>
+    </div>
+    <div class="w-full max-w-md md:max-w-2xl px-6 py-6 bg-black/60 animate-[fade-in-right_1s_ease-out]">
       <div class="grid md:flex gap-x-6 gap-y-12 justify-center">
         <div class="md:w-1/2 flex flex-col justify-center items-center px-2">
-          <img class="text-center pointer-events-none max-w-2xs" src={logo.src} alt="NMIXX logo" />
+          <img class="max-w-full text-center pointer-events-none w-2xs" src={logo.src} alt="NMIXX logo" />
           <Countdown client:load timestamp={1778490000000} class="mt-4" keepAfterEnd>
             <a href="https://nmixx.lnk.to/HeavySerenade" target="_blank" rel="noopener noreferrer">
               <div
