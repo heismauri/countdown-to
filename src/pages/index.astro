@@ -1,10 +1,10 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Countdown from "@/components/Countdown.tsx";
 import Footer from "@/components/Footer.astro";
-import logo from "@/assets/title-track.svg";
+import Layout from "@/layouts/Layout.astro";
+import Timetable from "@/components/Timetable.tsx";
+import { type Event } from "@/types/event.ts";
 
-const timetable = [
+const timetable: Event[] = [
   {
     timestamp: new Date("21 Apr 2026 10:00:00 PM GMT+9").getTime(),
     label: "Album Trailer"
@@ -76,47 +76,15 @@ const timetable = [
     <div class="w-full h-dvh fixed top-0 left-0 -z-10">
       <iframe
         src="https://www.youtube.com/embed/gRZlaEbhbqs?autoplay=1&mute=1&loop=1&controls=0&rel=0&playsinline=1"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; gyroscope; accelerometer"
+        allow="autoplay"
         class:list={[
           "w-lvw h-[56.25vw] min-h-[140vh] min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2",
           "-translate-y-1/2 pointer-events-none"
         ]}
-        allowfullscreen></iframe>
+        title="background-video"
+        ></iframe>
     </div>
-    <div class="w-full max-w-md md:max-w-2xl px-6 py-6 bg-black/60 animate-[fade-in-right_1s_ease-out]">
-      <div class="grid md:flex gap-x-6 gap-y-12 justify-center">
-        <div class="md:w-1/2 flex flex-col justify-center items-center px-2">
-          <img class="max-w-full text-center pointer-events-none w-2xs" src={logo.src} alt="NMIXX logo" />
-          <Countdown client:only="react" timestamp={1778490000000} class="mt-4" keepAfterEnd>
-            <a href="https://nmixx.lnk.to/HeavySerenade" target="_blank" rel="noopener noreferrer">
-              <div
-                class:list={[
-                  "text-sm inline-block py-2 px-6 my-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
-                  "hover:text-stone-50 transition-colors duration-300"
-                ]}
-              >
-                pre-order + pre-save now
-              </div>
-            </a>
-          </Countdown>
-        </div>
-        <div
-          class:list={[
-            "md:w-1/2 grid grid-cols-1 gap-6 px-2 justify-center items-center md:max-h-[70dvh] md:overflow-y-auto",
-            "md:snap-y md:scroll-smooth [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-stone-800/75",
-            "[&::-webkit-scrollbar-thumb]:bg-stone-100 empty:hidden"
-          ]}
-        >
-          {
-            timetable.map((item) => (
-              <Countdown client:only="react" timestamp={item.timestamp} small class="snap-start mx-auto">
-                <p class="italic text-sm my-1 lowercase">{item.label}</p>
-              </Countdown>
-            ))
-          }
-        </div>
-      </div>
-    </div>
+    <Timetable client:load events={timetable} />
     <Footer />
   </main>
 </Layout>

@@ -47,7 +47,7 @@ const Countdown = memo(
       return (
         <div className="max-w-72 text-center">
           {children}
-          <div className="lowercase mt-4">
+          <div className="lowercase">
             <p className={small ? "text-sm" : "text-base"}>{formattedDate}</p>
             <p className={small ? "text-xs" : "text-sm"}>{userTimeZone}</p>
           </div>
