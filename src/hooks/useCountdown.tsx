@@ -16,21 +16,25 @@ const getTimes = (distance: number) => {
 
 const useCountdown = (date: Date) => {
   const countDownDate = date.getTime();
-  const [countDown, setCountDown] = useState(countDownDate - new Date().getTime());
+  const [countDown, setCountDown] = useState<number | null>(null);
 
   useEffect(() => {
-    if (countDownDate - new Date().getTime() <= 0) return;
-
-    const interval = setInterval(() => {
+    const tick = () => {
       const remaining = countDownDate - new Date().getTime();
       setCountDown(remaining);
-      if (remaining <= 0) clearInterval(interval);
+      return remaining;
+    };
+
+    if (tick() <= 0) return;
+
+    const interval = setInterval(() => {
+      if (tick() <= 0) clearInterval(interval);
     }, 1000);
 
     return () => clearInterval(interval);
   }, [countDownDate]);
 
-  return getTimes(countDown);
+  return countDown === null ? null : getTimes(countDown);
 };
 
 export default useCountdown;

@@ -40,7 +40,11 @@ const Countdown = memo(
   ({ timestamp, class: className = "", small = false, keepAfterEnd = false, children }: CountdownProps) => {
     const date = useMemo(() => new Date(timestamp), [timestamp]);
     const formattedDate = useMemo(() => formatDate(date), [date]);
-    const { days, hours, minutes, seconds } = useCountdown(date);
+    const times = useCountdown(date);
+
+    if (!times) return null;
+
+    const { days, hours, minutes, seconds } = times;
 
     if (seconds < 0) {
       if (!keepAfterEnd) return null;
