@@ -18,7 +18,7 @@ export default defineConfig({
     }
   ],
   integrations: [react()],
-  site: "https://countdown.heismauri.com",
+  site: "https://nmixx.heismauri.com",
   vite: {
     plugins: [tailwindcss()]
   }
