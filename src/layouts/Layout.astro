@@ -1,13 +1,18 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
+
+import background from "@/assets/background.jpg";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead />
-	</head>
-	<body class="bg-black text-white relative">
-		<slot />
-	</body>
+  <head>
+    <BaseHead />
+  </head>
+  <body
+    class="bg-stone-950 text-stone-50 relative bg-center bg-cover"
+    style={`background-image: url(${background.src});`}
+  >
+    <slot />
+  </body>
 </html>
