@@ -9,10 +9,12 @@ import background from "@/assets/background.jpg";
   <head>
     <BaseHead />
   </head>
-  <body
-    class="bg-stone-950 text-stone-50 relative bg-center bg-cover"
-    style={`background-image: url(${background.src});`}
-  >
+  <body class="bg-[#476662] text-stone-50 relative">
+    <div
+      class="fixed inset-0 -z-10 bg-center bg-cover"
+      style={`background-image: url(${background.src});`}
+    >
+    </div>
     <slot />
   </body>
 </html>
