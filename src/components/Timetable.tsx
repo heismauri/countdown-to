@@ -23,7 +23,8 @@ const Timetable = ({ events }: { events: Event[] }) => {
         </div>
         <div
           className={[
-            "md:w-72 grid grid-cols-1 gap-6 px-2 justify-center items-center md:max-h-[70dvh] md:overflow-y-auto",
+            "md:w-72 grid grid-cols-1 gap-6 px-2 justify-center items-center",
+            "md:max-h-[calc(100dvh-13rem)] md:overflow-y-auto",
             "md:snap-y md:scroll-smooth [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-stone-800/75",
             "[&::-webkit-scrollbar-thumb]:bg-stone-100 empty:hidden"
           ].join(" ")}
