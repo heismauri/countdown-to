@@ -1,5 +1,5 @@
-import logo from "@/assets/strange-muse-logo.png";
 import Countdown from "@/components/Countdown.tsx";
+import { logo, preOrderUrl, releaseTimestamp } from "@/data/release.ts";
 import { type Event } from "@/types/event.ts";
 
 const Timetable = ({ events }: { events: Event[] }) => {
@@ -8,8 +8,8 @@ const Timetable = ({ events }: { events: Event[] }) => {
       <div className="grid md:flex gap-x-6 gap-y-12 justify-center">
         <div className="md:w-72 flex flex-col justify-center items-center px-2">
           <img className="max-w-full text-center pointer-events-none w-2xs" src={logo.src} alt="Strange Muse logo" />
-          <Countdown timestamp={1792400400000} class="mt-4" keepAfterEnd>
-            <a href="https://nmixx.lnk.to/StrangeMuse" target="_blank" rel="noopener noreferrer">
+          <Countdown timestamp={releaseTimestamp} class="mt-4" keepAfterEnd>
+            <a href={preOrderUrl} target="_blank" rel="noopener noreferrer">
               <div
                 className={[
                   "text-sm inline-block py-2 px-6 mt-5 mb-4 bg-stone-50 hover:bg-stone-950 text-stone-950",

@@ -1,0 +1,42 @@
+import { type Event } from "@/types/event";
+
+export { default as logo } from "@/assets/strange-muse-logo.png";
+
+export const preOrderUrl = "https://nmixx.lnk.to/StrangeMuse";
+
+export const releaseTimestamp = new Date("2026-10-19T18:00:00+09:00").getTime();
+
+export const events: Event[] = [
+  {
+    timestamp: new Date("2026-09-23T22:00:00+09:00").getTime(),
+    label: '"Strange Muse" Motion Poster'
+  },
+  {
+    timestamp: new Date("2026-09-28T22:00:00+09:00").getTime(),
+    label: '"Strange Muse" Album Trailer'
+  },
+  {
+    timestamp: new Date("2026-09-29T00:00:00+09:00").getTime(),
+    label: "Concept Photo: Muse Ver."
+  },
+  {
+    timestamp: new Date("2026-09-30T00:00:00+09:00").getTime(),
+    label: "Concept Photo: Strange Ver."
+  },
+  {
+    timestamp: new Date("2026-10-11T22:00:00+09:00").getTime(),
+    label: "A Capella Highlight Medley (Choir Ver.)"
+  },
+  {
+    timestamp: new Date("2026-10-15T22:00:00+09:00").getTime(),
+    label: "Original Highlight Medley"
+  },
+  {
+    timestamp: new Date("2026-10-18T00:00:00+09:00").getTime(),
+    label: '"Birthday Wish" M/V Teaser'
+  },
+  {
+    timestamp: new Date("2026-12-09T00:00:00+09:00").getTime(),
+    label: "N=MIXX Japanese debut"
+  }
+].sort((a, b) => a.timestamp - b.timestamp);
