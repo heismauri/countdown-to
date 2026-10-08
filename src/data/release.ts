@@ -4,6 +4,8 @@ export { default as logo } from "@/assets/strange-muse-logo.png";
 
 export const preOrderUrl = "https://nmixx.lnk.to/StrangeMuse";
 
+const backgroundVideoId = "k6K0UadWsL0";
+
 export const releaseTimestamp = new Date("2026-10-19T18:00:00+09:00").getTime();
 
 export const events: Event[] = [
@@ -40,3 +42,19 @@ export const events: Event[] = [
     label: "N=MIXX Japanese debut"
   }
 ].sort((a, b) => a.timestamp - b.timestamp);
+
+const backgroundVideoParams = new URLSearchParams({
+  autoplay: "1",
+  mute: "1",
+  loop: "1",
+  playlist: backgroundVideoId,
+  controls: "0",
+  rel: "0",
+  playsinline: "1",
+  disablekb: "1",
+  fs: "0",
+  iv_load_policy: "3",
+  modestbranding: "1"
+});
+
+export const backgroundVideoUrl = `https://www.youtube.com/embed/${backgroundVideoId}?${backgroundVideoParams}`;
