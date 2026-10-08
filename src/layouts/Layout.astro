@@ -2,12 +2,19 @@
 import BaseHead from "@/components/BaseHead.astro";
 
 import background from "@/assets/background.jpg";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead />
+    <BaseHead {...Astro.props} />
   </head>
   <body class="bg-[#476662] text-stone-50 relative">
     <div class="fixed inset-0 -z-10 bg-center bg-cover" style={`background-image: url(${background.src});`}></div>
