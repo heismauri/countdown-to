@@ -1,0 +1,69 @@
+---
+import Footer from "@/components/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import { backgroundVideoUrl, logo, preOrderUrl, releaseTimestamp } from "@/data/release";
+
+const fallbackFormatter = new Intl.DateTimeFormat([], {
+  dateStyle: "short",
+  timeStyle: "medium",
+  timeZone: "UTC"
+});
+
+const fallbackDate = fallbackFormatter.format(new Date(releaseTimestamp)).split("/").join(".").replace(",", "");
+---
+
+<Layout noindex>
+  <noscript>
+    <div class="m-5">JavaScript is disabled in your browser. Please enable it to view this page.</div>
+  </noscript>
+  <main class="container mx-auto min-h-svh flex flex-col justify-center items-center px-12 py-20">
+    <div class="w-full h-dvh fixed top-0 left-0 -z-10">
+      <iframe
+        src={backgroundVideoUrl}
+        allow="autoplay"
+        class:list={[
+          "w-lvw h-[56.25vw] min-h-[140vh] min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2",
+          "-translate-y-1/2 pointer-events-none"
+        ]}
+        title="background-video"
+      ></iframe>
+    </div>
+    <div class="max-w-md px-6 py-6 bg-black/50 animate-[fade-in-right_1s_ease-out]">
+      <div class="flex justify-center">
+        <div class="md:w-72 flex flex-col justify-center items-center px-2">
+          <img class="max-w-full text-center pointer-events-none w-2xs" src={logo.src} alt="Strange Muse logo" />
+          <div class="max-w-72 text-center">
+            <a href={preOrderUrl} target="_blank" rel="noopener noreferrer">
+              <div
+                class:list={[
+                  "text-sm inline-block py-2 px-6 mt-5 mb-4 bg-stone-50 hover:bg-stone-950 text-stone-950",
+                  "hover:text-stone-50 transition-colors duration-300"
+                ]}
+              >
+                pre-order + pre-save now
+              </div>
+            </a>
+            <div class="lowercase">
+              <p class="text-base" id="preview-date">
+                {fallbackDate}
+              </p>
+              <p class="text-sm" id="preview-tz">
+                UTC
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </main>
+</Layout>
+
+<script define:vars={{ releaseTimestamp }}>
+  const formatter = new Intl.DateTimeFormat([], { dateStyle: "short", timeStyle: "medium" });
+  const formatted = formatter.format(new Date(releaseTimestamp)).split("/").join(".").replace(",", "");
+  const dateEl = document.getElementById("preview-date");
+  const tzEl = document.getElementById("preview-tz");
+  if (dateEl) dateEl.textContent = formatted;
+  if (tzEl) tzEl.textContent = formatter.resolvedOptions().timeZone;
+</script>
